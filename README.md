@@ -31,12 +31,21 @@ You should **not** pre-load the spec files on the remote computer, we will test 
 # Part 2
 Create the facilities necessary to debug the remotely executed spec file.
 Start by reading node's debugger [documentation](https://nodejs.org/en/docs/guides/debugging-getting-started/).
-Please note: we don't want you to implement the UI of the debugger, use one of the existing clients.
 For example, if the user (developer), wants to debug his spec file, the developer might execute:
 ```shell
 DEBUG=true jest -f one.spec
 ```
 A debugger would open and the developer would be able to step over/into the code in the spec file (in the example `one.spec.js`)
+
+Please note: we don't want you to implement the UI of the debugger, use one of the existing clients.
+You can also piggy back on the chrome's debugger UI, example:
+```shell
+# Start chrome with remote debugger
+/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary --remote-debugging-port=9222
+
+# Grab the correct page identifier with some jq and sed magic and open the browser on the chrome's debugger UI
+open https://chrome-devtools-frontend.appspot.com/serve_file/@65d20b8e6b1e34d2687f4367477b92e89867c6f5/inspector.html?`curl --silent localhost:9222/json | jq -r '.[] | select(.type=="page") | .webSocketDebuggerUrl' | sed -e "s/:\/\//=/g"`\&experiments=true\&remoteFrontend=true
+```
 
 * Bonus: Make part 2 without exposing additional port(s) on the docker container, you can, however, create additional docker containers. This is to mimick that the "remote machine" and the "local machine" are both behind firewall(s), but still can access a 3rd machine, a "jump host".
 
