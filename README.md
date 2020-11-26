@@ -80,9 +80,9 @@ The final result is a code that consists of a "client" (a modified jest (or jest
 After you've completed your tasks, and you are ready to submit it, do the following:
 * Create a **private** git repository (preferably on github.com)
 * Make sure all the code is committed and pushed
-* Make sure you added a markdown file (`README.md`) with instructions on how to run your project from scratch, that must include any operations that is required in order to run the project (i.e. setup a database, create tables, etc.)
+* Make sure you added a markdown file (`README.md`) with instructions on how to run your project from scratch, that must include any operations that is required in order to run the project
 * Clone your repo and use your instructions to see it works as expected
-* Add `yurynix`, ???, and ??? as users to the repo (Master permission)
+* Add `yurynix` user to the repo (Master permission)
 * Send us an email with your repo link
 
 
