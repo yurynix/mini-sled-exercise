@@ -24,7 +24,7 @@ can be executed on jest via `npm test` (which is actually just invoking the `jes
 
 To mimick another computer, we'll use a docker container.
 
-# Part 1
+## Part 1 - Execute spec files on another computer
 Create the facilities necessary to execute the spec files (one.spec.js, two.spec.js, etc.) on the running docker container instead of the "local machine".
 
 You should **not** pre-load the spec files on the remote computer, we will test your solution on a different project than `some-project` with completely different spec files.
@@ -36,7 +36,7 @@ Key points of the required flow:
 * "remote machine" executing jest on the remote computer and feeds it the spec files
 * "remote machine" sends back the results to the local `jest` process that displays the results.
 
-# Part 2
+## Part 2 - Allow debugging spec files while they're being executed on another computer
 Create the facilities necessary to debug the remotely executed spec file.
 Start by reading node's debugger [documentation](https://nodejs.org/en/docs/guides/debugging-getting-started/).
 For example, if the user (developer), wants to debug his spec file, the developer might execute:
@@ -58,18 +58,19 @@ open https://chrome-devtools-frontend.appspot.com/serve_file/@65d20b8e6b1e34d268
 * Bonus: Make part 2 without exposing additional port(s) on the docker container, you can, however, create additional docker containers. This is to mimick that the "remote machine" and the "local machine" are both behind firewall(s), but still can access a 3rd machine, a "jump host".
 
 
-# Initial setup
-* Install docker, follow the instructions [here](https://docs.docker.com/get-docker/). [What is docker?](https://www.youtube.com/watch?v=JSLpG_spOBM)
+## Initial setup
+* Install docker, follow the instructions [here](https://docs.docker.com/get-docker/). To learn more about docker check out [this video](https://www.youtube.com/watch?v=JSLpG_spOBM).
 * We've attached a Dockerfile, that is used to build a docker image from which you run a docker container that simulates the remote machine. At the moment it's a simple http server that returns `Hello world` when you issue a GET request to port 8080. You can and should change that application to complete the task.
 * To build and run the docker container, follow README.md in the `remote-machine` directory.
 
-## Before Submitting
+
+# Before Submitting
 * Make sure to use clean code. (References: [Clean Code: A Handbook of Agile Software Craftsmanship](https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882), [Code Complete](https://www.amazon.com/Code-Complete-Practical-Handbook-Construction/dp/0735619670/) ). Make use of tools that will help you with standard [formatting](https://prettier.io/) an [linting](https://eslint.org/).
 * You will be required to explain your implementation, make sure you understand all of your code.
 
-## Submitting your project
+# Submitting your project
 After you've completed your tasks, and you are ready to submit it, do the following:
-* Create a git repository (preferably on github.com)
+* Create a **private** git repository (preferably on github.com)
 * Make sure all the code is committed and pushed
 * Make sure you added a markdown file (`README.md`) with instructions on how to run your project from scratch, that must include any operations that is required in order to run the project (i.e. setup a database, create tables, etc.)
 * Clone your repo and use your instructions to see it works as expected

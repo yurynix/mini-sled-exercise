@@ -1,5 +1,6 @@
 'use strict';
 
+// Check out the docs here: https://expressjs.com/en/api.html
 const express = require('express');
 
 // Constants
