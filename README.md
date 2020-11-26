@@ -30,13 +30,15 @@ You may **not** pre-load the spec files on the remote computer, we will test you
 
 # Part 2
 Create the facilities necessary to debug the remotely executed spec file.
+Start by reading node's debugger [documentation](https://nodejs.org/en/docs/guides/debugging-getting-started/).
+Please note: we don't want you to implement the UI of the debugger, use one of the existing clients.
 For example, if the user (developer), wants to debug his spec file, she might want to run:
 ```shell
 DEBUG=true jest -f one.spec
 ```
 A debugger would open and the developer would be able to step over/into the code in the spec file (in the example `one.spec.js`)
 
-* Bonus: Make part 2 without exposing additional port(s) on the docker container, you can, however, create additional docker containers. This is to mimick that the "remote machine" and the "local machine" are both behind firewall(s).
+* Bonus: Make part 2 without exposing additional port(s) on the docker container, you can, however, create additional docker containers. This is to mimick that the "remote machine" and the "local machine" are both behind firewall(s), but still can access a 3rd machine, a "jump host".
 
 
 # Initial setup
