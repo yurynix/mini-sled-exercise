@@ -75,6 +75,8 @@ open https://chrome-devtools-frontend.appspot.com/serve_file/@65d20b8e6b1e34d268
 * You will be required to explain your implementation, make sure you understand all of your code.
 
 # Submitting your project
+The final result is a code that consists of a "client" (a modified jest (or jest subsystem)) and a "server" ("remote machine").
+
 After you've completed your tasks, and you are ready to submit it, do the following:
 * Create a **private** git repository (preferably on github.com)
 * Make sure all the code is committed and pushed
