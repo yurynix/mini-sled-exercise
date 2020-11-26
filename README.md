@@ -26,13 +26,13 @@ To mimick another computer, we'll use a docker container.
 # Part 1
 Create the facilities necessary to execute the spec files (one.spec.js, two.spec.js, etc.) on the running docker container instead of the "local machine".
 
-You may **not** pre-load the spec files on the remote computer, we will test your solution on a different project than `some-project` with completely different spec files.
+You should **not** pre-load the spec files on the remote computer, we will test your solution on a different project than `some-project` with completely different spec files.
 
 # Part 2
 Create the facilities necessary to debug the remotely executed spec file.
 Start by reading node's debugger [documentation](https://nodejs.org/en/docs/guides/debugging-getting-started/).
 Please note: we don't want you to implement the UI of the debugger, use one of the existing clients.
-For example, if the user (developer), wants to debug his spec file, she might want to run:
+For example, if the user (developer), wants to debug his spec file, the developer might execute:
 ```shell
 DEBUG=true jest -f one.spec
 ```
