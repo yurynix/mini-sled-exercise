@@ -14,7 +14,8 @@ The goal of this exercise is to learn&apply concepts to solve a loosely defined 
 
 In this exercise you will build a little demo of a "mini sled".
 Just like the real sled, we'd like it to be built on top of [jest](https://github.com/facebook/jest) test runner.
-You can learn on some of jest's architecture in this [video](https://www.youtube.com/watch?v=3YDiloj8_d0).
+You can learn on some of jest's architecture in this [video](https://www.youtube.com/watch?v=3YDiloj8_d0), the gist of it is that jest is a modular system,
+each of it's parts can be replaced, example of such systems: [resolver](https://jestjs.io/docs/en/configuration#resolver-string), [transformer](https://jestjs.io/docs/en/configuration#transform-objectstring-pathtotransformer--pathtotransformer-object), [runner](https://jestjs.io/docs/en/configuration#runner-string), [reporter](https://jestjs.io/docs/en/configuration#reporters-arraymodulename--modulename-options), etc.
 
 The end goal is to make jest tests execute on another computer instead of the computer that actually invokes jest (the computer that runs `npm test`).
 
@@ -27,6 +28,13 @@ To mimick another computer, we'll use a docker container.
 Create the facilities necessary to execute the spec files (one.spec.js, two.spec.js, etc.) on the running docker container instead of the "local machine".
 
 You should **not** pre-load the spec files on the remote computer, we will test your solution on a different project than `some-project` with completely different spec files.
+
+Key points of the required flow:
+* Developer executing `jest` by running `npm test`
+* `jest` process is executing
+* `jest` process sending the spec files to "remote machine" (either one by one, or all of them together (consider the trade offs))
+* "remote machine" executing jest on the remote computer and feeds it the spec files
+* "remote machine" sends back the results to the local `jest` process that displays the results.
 
 # Part 2
 Create the facilities necessary to debug the remotely executed spec file.
