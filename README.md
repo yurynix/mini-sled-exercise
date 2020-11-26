@@ -46,7 +46,9 @@ For example, if the user (developer), wants to debug his spec file, the develope
 ```shell
 DEBUG=true jest -f one.spec
 ```
-A debugger would open and the developer would be able to step over/into the code in the spec file (in the example `one.spec.js`)
+A javascript debugger would open and the developer would be able to step over/into the code in the spec file (in the example `one.spec.js`)
+
+![Remote debugger example](debugger.png)
 
 Please note: we don't want you to implement the UI of the debugger, use one of the existing clients.
 You can also piggy back on the chrome's debugger UI, example:
