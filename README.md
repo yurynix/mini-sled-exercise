@@ -26,7 +26,9 @@ To mimick another computer, we'll use a docker container.
 
 ## Part 1 - Execute spec files on another computer
 Create the facilities necessary to execute the spec files (one.spec.js, two.spec.js, etc.) on the running docker container instead of the "local machine".
+
 ![Remote jest execution diagram](jest_run_diagram.png)
+
 
 You should **not** pre-load the spec files on the remote computer, we will test your solution on a different project than `some-project` with completely different spec files.
 
