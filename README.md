@@ -46,6 +46,7 @@ For example, if the user (developer), wants to debug his spec file, the develope
 ```shell
 DEBUG=true jest -f one.spec
 ```
+After putting a `debugger;` statement at the place where she wants the debugger to stop.
 A javascript debugger would open and the developer would be able to step over/into the code in the spec file (in the example `one.spec.js`)
 
 ![Remote debugger example](debugger.png)
