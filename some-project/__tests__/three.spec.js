@@ -1,5 +1,5 @@
 describe('one', () => {
-    it('passing', () => {
-        expect(true).toBeTruthy();
+    it('this test always fails', () => {
+        expect(false).toBeTruthy();
     });
 });
