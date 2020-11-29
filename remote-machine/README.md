@@ -31,3 +31,9 @@ In it's current state, once you changed the files in this directory, you need to
 
 However, you might want to consider mounting the code as volume:
 https://docs.docker.com/storage/volumes/#start-a-container-with-a-volume
+
+
+# Not strictly necessary
+While you're developing the "remote machine" API, it is not strictly necessary to run the node process inside docker container,
+you can simple run `npm start` (after you've installed the dependencies via `npm install` of course).
+And only package and test it in the docker container after you've done.
