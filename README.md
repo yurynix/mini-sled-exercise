@@ -71,7 +71,7 @@ open https://chrome-devtools-frontend.appspot.com/serve_file/@65d20b8e6b1e34d268
 
 
 ## Tips
-* Take the time to get a little familiaraty with [node.js](https://nodejs.dev/learn), [promises](https://nodejs.dev/learn/understanding-javascript-promises) and [async / await](https://nodejs.dev/learn/modern-asynchronous-javascript-with-async-and-await)
+* Take the time to get a little familiaraty with [node.js](https://nodejs.dev/learn), the [npm package manager](https://nodejs.dev/learn/an-introduction-to-the-npm-package-manager), [promises](https://nodejs.dev/learn/understanding-javascript-promises) and [async / await](https://nodejs.dev/learn/modern-asynchronous-javascript-with-async-and-await)
 * Create a simple nodejs app and test it with [jest test runner](https://jestjs.io/docs/en/getting-started)
 * Don't start writing any code for the task before you've checked the linked resources, they're here to help you on your quest.
 
