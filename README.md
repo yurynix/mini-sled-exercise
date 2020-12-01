@@ -53,7 +53,7 @@ A javascript debugger would open and the developer would be able to step over/in
 
 Please note: we don't want you to implement the UI of the debugger, use one of the existing clients.
 
-## Example direction
+## How to open a remote chrome debugger
 You can also piggy back on the chrome's debugger UI, the one you get when you open [developer tools](https://developers.google.com/web/tools/chrome-devtools), this UI is just a html/javascript application.
 Google also have a deployed preview you can access on this URL:
 ```
