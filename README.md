@@ -53,6 +53,9 @@ A javascript debugger would open and the developer would be able to step over/in
 
 Please note: we don't want you to implement the UI of the debugger, use one of the existing clients.
 
+* Bonus: Make part 2 without exposing additional port(s) on the docker container, you can, however, create additional docker containers. This is to mimick that the "remote machine" and the "local machine" are both behind firewall(s), but still can access a 3rd machine, a "jump host".
+
+
 ## How to open a remote chrome debugger
 You can also piggy back on the chrome's debugger UI, the one you get when you open [developer tools](https://developers.google.com/web/tools/chrome-devtools), this UI is just a html/javascript application.
 Google also have a deployed preview you can access on this URL:
@@ -73,9 +76,6 @@ and telling it open the debug port (9222), then we open (in another browser) the
 # Grab the correct page identifier with some jq and sed magic and open the browser on the chrome's debugger UI
 open https://chrome-devtools-frontend.appspot.com/serve_file/@65d20b8e6b1e34d2687f4367477b92e89867c6f5/inspector.html?`curl --silent localhost:9222/json | jq -r '.[] | select(.type=="page") | .webSocketDebuggerUrl' | sed -e "s/:\/\//=/g"`\&experiments=true\&remoteFrontend=true
 ```
-
-* Bonus: Make part 2 without exposing additional port(s) on the docker container, you can, however, create additional docker containers. This is to mimick that the "remote machine" and the "local machine" are both behind firewall(s), but still can access a 3rd machine, a "jump host".
-
 
 ## Initial setup
 * Install docker, follow the instructions [here](https://docs.docker.com/get-docker/). To learn more about docker check out [this video](https://www.youtube.com/watch?v=JSLpG_spOBM).
