@@ -34,7 +34,7 @@ You should **not** pre-load the spec files on the remote computer, we will test 
 
 Key points of the required flow:
 * Developer executing `jest` by running `npm test`
-* `jest` process is executing
+* `jest` process is executing with a modified (by you) runner
 * `jest` process sending the spec files to "remote machine" (either one by one, or all of them together (consider the trade offs))
 * "remote machine" executing jest on the remote computer and feeds it the spec files
 * "remote machine" sends back the results to the local `jest` process that displays the results.
@@ -52,7 +52,20 @@ A javascript debugger would open and the developer would be able to step over/in
 ![Remote debugger example](debugger.png)
 
 Please note: we don't want you to implement the UI of the debugger, use one of the existing clients.
-You can also piggy back on the chrome's debugger UI, example:
+
+## Example direction
+You can also piggy back on the chrome's debugger UI, the one you get when you open [developer tools](https://developers.google.com/web/tools/chrome-devtools), this UI is just a html/javascript application.
+Google also have a deployed preview you can access on this URL:
+```
+https://chrome-devtools-frontend.appspot.com/serve_file/@65d20b8e6b1e34d2687f4367477b92e89867c6f5/inspector.html?ws=localhost:9222/devtools/page/48ADDF60F6F031835C7539B1CA6025AD&experiments=true&remoteFrontend=true
+```
+
+Notice the `localhost:9222/devtools/page/48ADDF60F6F031835C7539B1CA6025AD` part, it says the devtools application what debugger to connect to. You can connet to some other chrome browser, or node debugger.
+
+
+Im the example below, we start a Chrome browser
+and telling it open the debug port (9222), then we open (in another browser) the URL of a chrome debugger UI with the correct paramters to connect to the browser's debugger.
+(the example uses [curl](https://github.com/curl/curl), [jq](https://github.com/stedolan/jq) and [sed](https://linux.die.net/man/1/sed), however you can just perform the steps manually by inspecting `http://localhost:9222/json`)
 ```shell
 # Start chrome with remote debugger
 /Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary --remote-debugging-port=9222
