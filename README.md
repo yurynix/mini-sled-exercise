@@ -109,6 +109,9 @@ After you've completed your tasks, and you are ready to submit it, do the follow
 * Send us an email with your repo link
 
 
+You may send questions to `yurym` of the domain `wix.com`.
+
+
 Good luck,
 
 The sledders.
