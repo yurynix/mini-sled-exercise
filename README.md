@@ -33,7 +33,7 @@ you will communicate via a REST/RPC API.
 ![Remote jest execution diagram](jest_run_diagram.png)
 
 
-You should **not** pre-load the spec files on the "remote computer", we will test your solution on a different project than `some-project` with completely different spec files.
+You should **not** pre-load the spec files on the "remote computer" (nor the "remote computer" should read the files directly (It's a different computer after all!)), we will test your solution on a different project than `some-project` with completely different spec files.
 
 Key points of the required flow:
 * Developer executing `jest` by running `npm test`
