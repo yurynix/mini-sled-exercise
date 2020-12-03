@@ -11,6 +11,7 @@ https://www.youtube.com/watch?v=hbz63Ve-eIY
 
 # Exercise
 The goal of this exercise is to learn&apply concepts to solve a loosely defined task.
+In this task you'll integrate and extend a popular test runner in the javascript ecosystem: [jest](https://github.com/facebook/jest).
 
 In this exercise you will build a little demo of a "mini sled".
 Just like the real sled, we'd like it to be built on top of [jest](https://github.com/facebook/jest) test runner.
@@ -22,21 +23,23 @@ The end goal is to make jest tests execute on another computer instead of the co
 In this repository, you can see a directory called `some-project`, this project have jest wired, and some tests
 can be executed on jest via `npm test` (which is actually just invoking the `jest` command).
 
-To mimick another computer, we'll use a docker container.
+To mimick another computer, one might use a docker container (or simply another process).
 
 ## Part 1 - Execute spec files on another computer
-Create the facilities necessary to execute the spec files (one.spec.js, two.spec.js, etc.) on the running docker container instead of the "local machine".
+Create the facilities necessary to execute the spec files (one.spec.js, two.spec.js, etc.) on another process than the jest process.
+One option is to have a running docker container that will mimick a different computer, or simple have another process instead, to which
+you will communicate via a REST/RPC API.
 
 ![Remote jest execution diagram](jest_run_diagram.png)
 
 
-You should **not** pre-load the spec files on the remote computer, we will test your solution on a different project than `some-project` with completely different spec files.
+You should **not** pre-load the spec files on the "remote computer", we will test your solution on a different project than `some-project` with completely different spec files.
 
 Key points of the required flow:
 * Developer executing `jest` by running `npm test`
 * `jest` process is executing with a modified (by you) runner
-* `jest` process sending the spec files to "remote machine" (either one by one, or all of them together (consider the trade offs))
-* "remote machine" executing jest on the remote computer and feeds it the spec files
+* `jest` process sending the spec files to "remote machine" (either one by one, or all of them together (consider the trade offs)) using a REST/RPC/gRPC API.
+* "remote machine" executing jest on the "remote computer" and feeds it the spec files
 * "remote machine" sends back the results to the local `jest` process that displays the results.
 
 ## Part 2 - Allow debugging spec files while they're being executed on another computer
@@ -77,7 +80,7 @@ and telling it open the debug port (9222), then we open (in another browser) the
 open https://chrome-devtools-frontend.appspot.com/serve_file/@65d20b8e6b1e34d2687f4367477b92e89867c6f5/inspector.html?`curl --silent localhost:9222/json | jq -r '.[] | select(.type=="page") | .webSocketDebuggerUrl' | sed -e "s/:\/\//=/g"`\&experiments=true\&remoteFrontend=true
 ```
 
-## Initial setup
+## Initial setup (Optional)
 * Install docker, follow the instructions [here](https://docs.docker.com/get-docker/). To learn more about docker check out [this video](https://www.youtube.com/watch?v=JSLpG_spOBM).
 * We've attached a Dockerfile, that is used to build a docker image from which you run a docker container that simulates the remote machine. At the moment it's a simple http server that returns `Hello world` when you issue a GET request to port 8080. You can and should change that application to complete the task.
 * To build and run the docker container, follow README.md in the `remote-machine` directory.

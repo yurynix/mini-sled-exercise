@@ -1,8 +1,25 @@
+# To run
+install dependencies:
+```
+npm install
+```
+
+run server:
+```
+npm start
+```
+
+assert the server is working (in another terminal):
+```
+curl http://localhost:8080/
+```
+
+
 Full explanation here:
 https://nodejs.org/en/docs/guides/nodejs-docker-webapp/
 
 
-# Quick start
+# Docker quick start
 To the purposses of this excersie, you can think of Docker as a lightweight "virtual machine".
 docker image - the blueprint of the virtual machine
 docker container - running instance of the docker image
