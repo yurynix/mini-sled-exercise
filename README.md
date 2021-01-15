@@ -42,6 +42,8 @@ Key points of the required flow:
 * "remote machine" executing jest on the "remote computer" and feeds it the spec files
 * "remote machine" sends back the results to the local `jest` process that displays the results.
 
+**important:** you must modify / integrate with **jest** test runner, not to create your own script, notice the flow above.
+
 ## Part 2 - Allow debugging spec files while they're being executed on another computer
 Create the facilities necessary to debug the remotely executed spec file.
 Start by reading node's debugger [documentation](https://nodejs.org/en/docs/guides/debugging-getting-started/).
